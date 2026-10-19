@@ -1,0 +1,35 @@
+button{
+    margin-top: 20px;
+    margin-bottom:20px;
+    padding:20px;
+}
+.mycontainer{
+    margin-top:200px;
+}
+.form{
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+}
+.contain{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.heading{
+    margin-bottom:20px;
+    margin-top:20px;
+}
+.mylabel{
+    margin-right:10px;
+}
+.mybtn{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.myheading{
+    margin-top:20px;
+    margin-bottom:20px;
+    font-size:30px;
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
