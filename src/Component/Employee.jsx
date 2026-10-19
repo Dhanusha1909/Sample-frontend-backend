@@ -8,25 +8,28 @@ export const Employee=()=>{
     const [email,setEmail]=useState("")
     const [error,setError]=useState("")
     const navigate=useNavigate();
-    async function handleSubmit(e){
-        e.preventDefault();
-        if(!firstname.trim() || !lastname.trim() || !email.trim()){
-            setError("Please fill all details");
-            return;
-        }
-        try{
-         await addedEmployee({firstname,lastname,email});
-            alert("Added Employee");
-             navigate("/");
-        }catch(error){
-            console.log(error);
-        }
+    async function handleSubmit(e) {
+    e.preventDefault();
+    setError("");
+
+    if (!firstname.trim() || !lastname.trim() || !email.trim()) {
+        setError("Please fill all details");
+        return;
     }
 
+    try {
+        await addedEmployee({ firstname, lastname, email });
+        alert("Added Employee");
+        navigate("/");
+    } catch (error) {
+        console.error("Failed to add employee:", error);
+        setError("Failed to add employee. Please try again.");
+    }
+}
     return(
         <div className="container mycontainer">
             <div className="form text-center rounded-6 shadow-lg p-3 mb-5 bg-body rounded">
-                <form className="form-control">
+                <form className="form-control" onSubmit={handleSubmit}>
                     <h1 className="text-center heading">Add your Details</h1>
                     {error && <p>{error}</p>}
                     <div className="mb-3 contain">
@@ -41,7 +44,7 @@ export const Employee=()=>{
                     <label className="form-label mylabel">Email</label>
                     <input onChange={(e)=>{setEmail(e.target.value)}} type="email" name="email" value={email} placeholder="Type your email" required />
                     </div>
-                    <button className="btn btn-primary" onClick={handleSubmit}>Submit</button>
+                    <button className="btn btn-primary" type="submit">Submit</button>
                 </form>
             </div>
         </div>

@@ -8,6 +8,28 @@ export const ListEmployee = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
+    /*const dumpydata=[
+        {
+            "id":1,
+        "firstname":"Dhanusha",
+        "lastname":"Baskaran",
+        "email":"dhanu@gmail.com"
+
+    }
+        ,
+        {
+            "id":2,
+            "firstname":"Dhavaputhalvi",
+            "lastname":"Ramesh",
+            "email":"dhava@gmail.com"
+        }
+    ];
+    useEffect(()=>{
+        setEmployees(dumpydata);
+        setIsLoading(false);
+    },[])*/
+    
+
     useEffect(() => {
         let isMounted = true;
 
@@ -54,7 +76,7 @@ export const ListEmployee = () => {
                             <th scope="col">Employee Email</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="tb">
                         {isLoading ? (
                             <tr><td colSpan="4">Loading employees...</td></tr>
                         ) : error ? (
