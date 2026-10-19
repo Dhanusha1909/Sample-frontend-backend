@@ -8,14 +8,14 @@ export const Employee=()=>{
     const [email,setEmail]=useState("")
     const [error,setError]=useState("")
     const navigate=useNavigate();
-    function handleSubmit(e){
+    async function handleSubmit(e){
         e.preventDefault();
         if(!firstname.trim() || !lastname.trim() || !email.trim()){
             setError("Please fill all details");
             return;
         }
         try{
-         addedEmployee({firstname,lastname,email});
+         await addedEmployee({firstname,lastname,email});
             alert("Added Employee");
              navigate("/");
         }catch(error){
